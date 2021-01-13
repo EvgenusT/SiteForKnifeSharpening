@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<header
+        th:insert="blocks/header :: header"></header>
+<div
+        class="container mt-5">
+    <h1>Мои статьи</h1><br>
+    <div th:each="element : ${posts}" class="alert alert-info mt-2">
+        <h3 th:text="${element.title}"/>
+        <p th:text="${element.anons}"/>
+        <a th:href="'/articles/' + ${element.id}">Детальнее</a>
+    </div>
+</div>
+</body>
+</html>
